@@ -2,25 +2,18 @@ import { registerMicroApps, start } from "qiankun";
 
 registerMicroApps([
   {
-    name: "angularApp",
-    entry: "//localhost:4200",
+    name: "React App One",
+    entry: "//localhost:3001",
     container: "#container",
-    activeRule: "/app-angular",
+    activeRule: "/react-1",
   },
   {
-    name: "reactApp",
-    entry: "//localhost:3000",
+    name: "React App Two",
+    entry: "//localhost:3002",
     container: "#container",
-    activeRule: "/app-react",
-  },
-  {
-    name: "vueApp",
-    entry: "//localhost:8080",
-    container: "#container",
-    activeRule: "/app-vue",
+    activeRule: "/react-2",
   },
 ]);
 
-console.debug("Hello");
 // start qiankun
 start();

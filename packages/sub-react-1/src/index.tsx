@@ -24,8 +24,8 @@ export async function mount(props: any) {
       <App />
     </React.StrictMode>,
     props.container
-      ? props.container.querySelector("#root")
-      : document.getElementById("root")
+      ? props.container.querySelector("#react-app-1")
+      : document.getElementById("react-app-1")
   );
 }
 
@@ -41,8 +41,8 @@ if (!window.__POWERED_BY_QIANKUN__) {
 export async function unmount(props: any) {
   ReactDOM.unmountComponentAtNode(
     props.container
-      ? props.container.querySelector("#root")
-      : document.getElementById("root")
+      ? props.container.querySelector("#react-app-1")
+      : document.getElementById("react-app-1")
   );
 }
 

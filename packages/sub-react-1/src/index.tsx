@@ -1,54 +1,31 @@
 import React from "react";
-import "./public-path";
 import ReactDOM from "react-dom";
 import "./index.css";
+import "./public-path";
 import App from "./App";
 
-/**
- * The bootstrap will only be called once when the child application is initialized.
- * The next time the child application re-enters, the mount hook will be called directly, and bootstrap will not be triggered repeatedly.
- * Usually we can do some initialization of global variables here,
- * such as application-level caches that will not be destroyed during the unmount phase.
- */
+function render(props: any) {
+  ReactDOM.render(<App />, document.querySelector("#sub-root"));
+}
+
+if (!(window as any).__POWERED_BY_QIANKUN__) {
+  render({});
+}
+
 export async function bootstrap() {
-  console.log("react app bootstraped");
+  console.log("[react16] react app bootstraped");
 }
 
-/**
- * The mount method is called every time the application enters,
- * usually we trigger the application's rendering method here.
- */
 export async function mount(props: any) {
-  ReactDOM.render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-    props.container
-      ? props.container.querySelector("#react-app-1")
-      : document.getElementById("react-app-1")
-  );
+  console.log("[react16] props from main framework", props);
+  render(props);
 }
 
-// @ts-ignore
-if (!window.__POWERED_BY_QIANKUN__) {
-  mount({});
-}
-
-/**
- * Methods that are called each time the application is switched/unloaded,
- * usually in this case we uninstall the application instance of the subapplication.
- */
 export async function unmount(props: any) {
+  const { container } = props;
   ReactDOM.unmountComponentAtNode(
-    props.container
-      ? props.container.querySelector("#react-app-1")
-      : document.getElementById("react-app-1")
+    container
+      ? container.querySelector("#root")
+      : document.querySelector("#root")
   );
-}
-
-/**
- * Optional lifecycle，just available with loadMicroApp way
- */
-export async function update(props: any) {
-  console.log("update props", props);
 }

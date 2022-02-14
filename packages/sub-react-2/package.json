@@ -1,5 +1,5 @@
 {
-  "name": "sub-react-2",
+  "name": "sub_react_1",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -17,9 +17,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -39,5 +39,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "react-app-rewired": "^2.1.11",
+    "webpack-cli": "^4.9.2"
   }
 }
